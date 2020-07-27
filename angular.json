@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-medium"
+    }
+  },
+  "defaultProject": "angular-medium",
+  "cli": {
+    "analytics": false
+  }
 }
