@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Store, select } from '@ngrx/store';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import {
   isSubmittingSelector,
-  validationErrorSelector,
-} from '../../store/selectors';
-import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
-import { LoginRequestInterface } from '../../types/loginRequest.interface';
-import { loginAction } from '../../store/actions/login.action';
+  validationErrorsSelector,
+} from 'src/app/auth/store/selectors';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
+import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface';
+import { loginAction } from 'src/app/auth/store/actions/login.action';
 
 @Component({
   selector: 'mc-login',
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
-    this.backendErrors$ = this.store.pipe(select(validationErrorSelector));
+    this.backendErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   initializeForm(): void {

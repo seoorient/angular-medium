@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { AuthService } from '../../services/auth.service';
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
-import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PersistanceService } from '../../../shared/services/persistance.service';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
+
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
+import { PersistanceService } from 'src/app/shared/services/persistance.service';
 import {
   loginAction,
   loginFailureAction,
   loginSuccessAction,
-} from '../actions/login.action';
+} from 'src/app/auth/store/actions/login.action';
 
 @Injectable()
 export class LoginEffect {
